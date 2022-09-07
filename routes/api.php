@@ -21,3 +21,5 @@ Route::post('/sign-in', [AuthController::class, 'signIn']);
 Route::middleware('auth:api')->group(function() {
     Route::post('/sign-out', [AuthController::class, 'signOut']);
 });
+
+Route::middleware('jwt.refresh')->post('/refresh', [AuthController::class, 'refresh']);
